@@ -1,36 +1,22 @@
-const startsWith = (msg, command) => {
-    return msg.content.startsWith(command);
-};
-const help = (msg) => {
-    var returnString = "Options atm: \n";
-    commands.forEach((c) => {
-        returnString += `\t- ${c[0]}\n`;
-    });
-    msg.reply(returnString);
-};
-const newClient = (msg) => {
-    msg.reply("https://airtable.com/shrcZQPa2ZRH8BZZp");
-};
-const newCampaign = (msg) => {
-    msg.reply("https://airtable.com/shrZJNNAgnZyJR0OB");
-};
-const newPrototype = (msg) => {
-    msg.reply("https://airtable.com/shrdH2aDFhdwKoFZK");
-};
-
-const checkForCommand = (msg) => {
-    commands.forEach((command) => {
-        if (startsWith(msg, command[0])) {
-            command[1](msg);
-        }
-    });
-};
+const Command = require('./classes/command');
+const help = require('./commands/help');
+const { startsWith } = require('./helpers');
 
 const commands = [
-    ['!help', help],
-    ['!new-client', newClient],
-    ['!new-campaign', newCampaign],
-    ['!new-prototype', newPrototype]
+    new Command('!new-client', "https://airtable.com/shrcZQPa2ZRH8BZZp"),
+    new Command("!new-campaign", "https://airtable.com/shrZJNNAgnZyJR0OB"),
+    new Command('!new-prototype', "https://airtable.com/shrdH2aDFhdwKoFZK")
 ];
 
-module.exports = checkForCommand
+const checkForCommand = (msg) => {
+    if (startsWith(msg, '!h') || startsWith(msg, "!help")) {
+        help(msg, commands);
+    } else {
+        commands.forEach((c) => {
+            if (startsWith(msg, c.trigger)) { c.execute; }
+        });
+    }
+};
+
+
+module.exports = checkForCommand;
