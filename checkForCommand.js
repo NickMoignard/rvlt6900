@@ -2,13 +2,13 @@ const startsWith = (msg, command) => {
     return msg.content.startsWith(command);
 };
 const help = (msg) => {
-    msg.reply("unfinished function");
+    msg.reply("options: !new-client, !new-campaign");
 };
 const newClient = (msg) => {
-    msg.reply("unfinished function");
+    msg.reply("https://airtable.com/shrcZQPa2ZRH8BZZp");
 };
 const newCampaign = (msg) => {
-    msg.reply("unfinished function");
+    msg.reply("https://airtable.com/shrZJNNAgnZyJR0OB");
 };
 
 
