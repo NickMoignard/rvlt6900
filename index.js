@@ -14,4 +14,4 @@ const checkMessage = (msg) => {
 };
 
 client.on("ready", initializeRVLT6900).on("message", checkMessage);
-client.login(`${process.env.TOKEN}`);
+client.login(process.env.TOKEN);
