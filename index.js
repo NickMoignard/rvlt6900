@@ -1,7 +1,7 @@
 const checkMsg = require('./checkForCommand');
 
 const initializeRVLT6900 = () => {
-    // DO STUFF
+    // probs do some API calls here
 };
 
 const Discord = require("discord.js");
