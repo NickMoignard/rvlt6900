@@ -14,10 +14,10 @@ const checkForCommand = (msg) => {
     if (startsWith(msg, '!h') || startsWith(msg, "!help")) {
         help(msg, commands);
     } else if (startsWith(msg, "!pm-update")) {
-        createSystemReport();
+        createSystemReport(msg);
     } else {
         commands.forEach((c) => {
-            if (startsWith(msg, c.trigger)) { c.execute; }
+            if (startsWith(msg, c.trigger)) { c.execute(msg); }
         });
     }
 };
