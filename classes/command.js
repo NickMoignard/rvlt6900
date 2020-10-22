@@ -8,7 +8,7 @@ class Command {
     }
 
     execute = (msg) => {
-        msg.reply(link);
+        msg.reply(`${link} password: basic-password`);
     }
 };
 

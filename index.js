@@ -1,4 +1,4 @@
-const checkMsg = require('./checkForCommand');
+const checkMsg = require('./helpers/checkForCommand');
 
 const initializeRVLT6900 = () => {
     // probs do some API calls here
